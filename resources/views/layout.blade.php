@@ -104,9 +104,9 @@
             <div class="collapse navbar-collapse" id="halim">
                <div class="menu-menu_1-container">
                   <ul id="menu-menu_1" class="nav navbar-nav navbar-left">
-                     <li class="current-menu-item active"><a title="Trang Chủ" href="index.php">Trang Chủ</a>
+                     <li class="current-menu-item active"><a title="Trang Chủ" href="{{route('homepage')}}">Trang Chủ</a>
                      </li>
-                     <li class="mega"><a title="Phim Mới" href="danhmuc.php">Phim Mới</a></li>
+                     <li class="mega"><a title="Phim Mới" href="{{route('category')}}">Phim Mới</a></li>
                      <li class="mega dropdown">
                         <a title="Năm" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Năm <span class="caret"></span></a>
                         <ul role="menu" class=" dropdown-menu">

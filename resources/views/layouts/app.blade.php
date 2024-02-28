@@ -70,9 +70,13 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
-            @yield('content')
+    @if(Auth::id())
+        <div class="container">
+        @include('layouts.navbar')
+        </div>
+    @endif
+    @yield('content')
         </main>
     </div>
  <!-- Scripts -->
