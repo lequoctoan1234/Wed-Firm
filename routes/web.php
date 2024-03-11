@@ -40,8 +40,8 @@ Auth::routes();
 
 Route::get('/home',[HomeController::class, 'index'])->name('home');
 
-Route::resource('category',[CategoryController::class, 'index']);
-Route::resource('genre',[GenreController::class, 'index']);
-Route::resource('movie',[MovieController::class, 'index']);
-Route::resource('country',[CountryController::class, 'index']);
-Route::resource('episode',[EpisodeController::class, 'index']);
+Route::resource('category',CategoryController::class);
+Route::resource('genre',GenreController::class);
+Route::resource('movie',MovieController::class);
+Route::resource('country',CountryController::class);
+Route::resource('episode',EpisodeController::class);

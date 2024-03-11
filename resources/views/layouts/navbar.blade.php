@@ -7,19 +7,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Thể loại <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('category.create')}}">Danh Mục <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Danh mục <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('country.create')}}">Quốc Gia<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Quốc Gia <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('genre.create')}}"Thể Loại <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Phim<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('movie.create')}}">Phim<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Tập Phim<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('episode.create')}}">Tập Phim<span class="sr-only">(current)</span></a>
       </li>
       <!-- <li class="nav-item">
         <a class="nav-link" href="#">Link</a>

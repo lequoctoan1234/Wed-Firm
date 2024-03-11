@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -11,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+
+
     }
 
     /**
@@ -19,7 +21,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $list = Category::all();
+        return view('admincp.category.form', compact('list'));
     }
 
     /**
@@ -27,7 +30,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data = $request->all();
+        $category = new Category();
+        $category->title= $data['title'];
+        $category->description= $data['description'];
+        $category->status= $data['status'];
+        $category->save();
+        return redirect()->back();
     }
 
     /**
@@ -35,7 +45,7 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
@@ -43,7 +53,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category=Category::find($id);
+        $list = Category::all();
+        return view('admincp.category.form', compact('list','category'));
     }
 
     /**
@@ -51,7 +63,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+        $category = Category::find($id);
+        $category->title= $data['title'];
+        $category->description= $data['description'];
+        $category->status= $data['status'];
+        $category->save();
+        return redirect()->back();
     }
 
     /**
@@ -59,6 +77,7 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Category::find($id)->delete();
+        return redirect()->back();
     }
 }
