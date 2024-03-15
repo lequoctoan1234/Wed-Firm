@@ -1,0 +1,17 @@
+
+.form-group img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    box-sizing: border-box;
+}
+
+.table td img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    box-sizing: border-box;
+
+}
