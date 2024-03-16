@@ -14,7 +14,7 @@ class IndexController extends Controller
 {
     public function home(){
 
-        $category = Category::orderby('id','DESC')->get();
+        $category = Category::orderby('id','DESC')->where('status',1)->get();
         $genre = Genre::orderby('id','DESC')->get();
         $country = Country::orderby('id','DESC')->get();
         return view('pages.home',compact('category','genre','country'));
@@ -22,17 +22,29 @@ class IndexController extends Controller
     }
     public function category($slug){
         
-        return view('pages.category');
+        $category = Category::orderby('id','DESC')->where('status',1)->get();
+        $genre = Genre::orderby('id','DESC')->get();
+        $country = Country::orderby('id','DESC')->get();
+        $cate_slug = Category::where('slug',$slug)->first();
+        return view('pages.category',compact('category','genre','country','cate_slug'));
 
     }
     public function genre($slug){
-        
-        return view('pages.genre');
+
+        $category = Category::orderby('id','DESC')->where('status',1)->get();
+        $genre = Genre::orderby('id','DESC')->get();
+        $country = Country::orderby('id','DESC')->get();
+        $gen_slug = Genre::where('slug',$slug)->first();
+        return view('pages.genre',compact('category','genre','country','gen_slug'));
 
     }
     public function country($slug){
-        
-        return view('pages.country');
+
+        $category = Category::orderby('id','DESC')->where('status',1)->get();
+        $genre = Genre::orderby('id','DESC')->get();
+        $country = Country::orderby('id','DESC')->get();
+        $count_slug = Country::where('slug',$slug)->first();
+        return view('pages.country',compact('category','genre','country','count_slug'));
 
     }
     public function watch(){

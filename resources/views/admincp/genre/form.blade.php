@@ -51,6 +51,7 @@
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
                         <th scope="col">Ative</th>
+                        <th scope="col">Slug</th>
                         <th scope="col">Manage</th>
                       </tr>
                     </thead>
@@ -67,6 +68,7 @@
                                     Không hiển thị
                                 @endif
                             </td>
+                            <td>{{$cate->slug}}</td>
                             <td style="display: flex;">
                                 {!! Form::open(['method' => 'DELETE', 'route' => ['genre.destroy',$cate->id],'onsubmit'=>'return confirm("Bạn chắc chắn muốn xóa danh mục này?")']) !!}
                                 {!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!}

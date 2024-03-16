@@ -74,6 +74,7 @@
                         <th scope="col">genre</th>
                         <th scope="col">image</th>
                         <th scope="col">Ative</th>
+                        <th scope="col">Slug</th>
                         <th scope="col">Manage</th>
                       </tr>
                     </thead>
@@ -94,6 +95,7 @@
                                     Không hiển thị
                                 @endif
                             </td>
+                            <td>{{$movi->slug}}</td>
                             <td style="display: flex;">
                                 {!! Form::open(['method' => 'DELETE', 'route' => ['movie.destroy',$movi->id],'onsubmit'=>'return confirm("Bạn chắc chắn muốn xóa danh mục này?")']) !!}
                                 {!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!}
