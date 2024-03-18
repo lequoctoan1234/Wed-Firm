@@ -63,12 +63,12 @@
                     {!! Form::close() !!}
                 </div>
             </div>
-                <table class="table">
+                <table class="Table" id="mytable">
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Title</th>
-                        <th scope="col">Description</th>
+                        {{-- <th scope="col">Description</th> --}}
                         <th scope="col">category</th>
                         <th scope="col">country</th>
                         <th scope="col">genre</th>
@@ -83,11 +83,11 @@
                         <tr id="{{$movi->id}}">
                             <th scope="row">{{$key}}</th>
                             <td>{{$movi->title}}</td>
-                            <td>{{$movi->description}}</td>
+                            {{-- <td>{{$movi->description}}</td> --}}
                             <td>{{$movi->category->title}}</td>
                             <td>{{$movi->country->title}}</td>
                             <td>{{$movi->genre->title}}</td>
-                            <td><img src="{{asset('uploads/movie/'.$movi->image)}}"></td>
+                            <td><img src="{{asset('uploads/movie/'.$movi->image)}}" width="50%"></td>
                             <td>
                                 @if($movi->status)
                                     Hiển thị
