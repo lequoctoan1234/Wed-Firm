@@ -39,6 +39,9 @@ Route::get('/firm', [App\Http\Controllers\IndexConTroller::class, 'movie'] )->na
 Auth::routes();
 
 Route::get('/home',[HomeController::class, 'index'])->name('home');
+Route::post('resorting',[CategoryController::class, 'resorting'])->name('resorting');
+Route::post('resorting',[GenreController::class, 'resorting'])->name('resorting');
+Route::post('resorting',[CountryController::class, 'resorting'])->name('resorting');
 
 Route::resource('category',CategoryController::class);
 Route::resource('genre',GenreController::class);

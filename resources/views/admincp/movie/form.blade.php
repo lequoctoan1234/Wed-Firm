@@ -78,9 +78,9 @@
                         <th scope="col">Manage</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="order_position">
                         @foreach ($list as $key => $movi)
-                        <tr>
+                        <tr id="{{$movi->id}}">
                             <th scope="row">{{$key}}</th>
                             <td>{{$movi->title}}</td>
                             <td>{{$movi->description}}</td>

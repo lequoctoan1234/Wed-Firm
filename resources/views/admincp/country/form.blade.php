@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Quản lý Quốc Gia') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -55,9 +55,9 @@
                         <th scope="col">Manage</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="order_position">
                         @foreach ($list as $key => $cate)
-                        <tr>
+                        <tr id="{{$cate->id}}">
                             <th scope="row">{{$key}}</th>
                             <td>{{$cate->title}}</td>
                             <td>{{$cate->description}}</td>
