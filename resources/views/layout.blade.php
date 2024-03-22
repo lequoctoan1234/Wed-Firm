@@ -174,6 +174,11 @@
    <script type='text/javascript' src='{{asset('js/owl.carousel.min.js')}}' id='carousel-js'></script>
 
    <script type='text/javascript' src='{{asset('js/halimtheme-core.min.js')}}' id='halim-init-js'></script>
+   <script>
+      jQuery(document).ready(function($) {				
+      var owl = $('#halim_related_movies-2');
+      owl.owlCarousel({loop: true,margin: 6,autoplay: true,autoplayTimeout: 4000,autoplayHoverPause: true,nav: true,navText: ['<i class="hl-down-open rotate-left"></i>', '<i class="hl-down-open rotate-right"></i>'],responsiveClass: true,responsive: {0: {items:2},480: {items:3}, 600: {items:5},1000: {items: 6}}})});
+   </script>
 
 
 

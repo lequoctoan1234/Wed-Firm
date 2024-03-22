@@ -13,14 +13,14 @@ use App\Models\Episode;
 class IndexController extends Controller
 {
     public function home(){
-
+        $phimhot = Movie::where('phim_hot',1)->where('status',1)->get();
         $category = Category::orderby('id','DESC')->where('status',1)->get();
         $genre = Genre::orderby('id','DESC')->get();
         $country = Country::orderby('id','DESC')->get();
         $category_home = Category::with('movie')->orderby('id','DESC')->where('status',1)->get();
         $genre_home = Genre::with('movie')->orderby('id','DESC')->where('status',1)->get();
         $country_home = Country::with('movie')->orderby('id','DESC')->where('status',1)->get();
-        return view('pages.home',compact('category','genre','country','category_home','country_home','genre_home'));
+        return view('pages.home',compact('category','genre','country','category_home','country_home','genre_home','phimhot'));
 
     }
     public function category($slug){
@@ -61,7 +61,7 @@ class IndexController extends Controller
         return view('pages.episode');
 
     }
-    public function movie($slug){
+    public function movie(){
         
         return view('pages.movie');
 

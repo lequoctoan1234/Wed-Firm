@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('quản lý phim') }}</div>
-
+                <a href="{{route('movie.index')}}" class="btn btn-primary">Liệt kê phim</a>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -53,6 +53,10 @@
                         <img src="{{asset('uploads/movie/'.$movie->image)}}">
                     @endif
                 </div>
+                <div class="form-group">
+                    {!! Form::label('Hot','Hot', []) !!}
+                    {!! Form::select('phim_hot',['1'=>'Có','0'=>'Không'],isset($movie) ? $movie->phim_hot : '',['class' => 'form-control']) !!}
+                </div>
                 @if(!isset($movie)) 
                 {!! Form::submit('Thêm Dữ Liệu',['class' => 'btn btn-success']) !!}
                 @else
@@ -63,16 +67,17 @@
                     {!! Form::close() !!}
                 </div>
             </div>
-                <table class="Table" id="mytable">
+                <table class="table">
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Title</th>
-                        {{-- <th scope="col">Description</th> --}}
+                        <th scope="col">Description</th>
                         <th scope="col">category</th>
                         <th scope="col">country</th>
                         <th scope="col">genre</th>
                         <th scope="col">image</th>
+                        <th scope="col">Phim Hot</th>
                         <th scope="col">Ative</th>
                         <th scope="col">Slug</th>
                         <th scope="col">Manage</th>
@@ -83,11 +88,18 @@
                         <tr id="{{$movi->id}}">
                             <th scope="row">{{$key}}</th>
                             <td>{{$movi->title}}</td>
-                            {{-- <td>{{$movi->description}}</td> --}}
+                            <td>{{$movi->description}}</td>
                             <td>{{$movi->category->title}}</td>
                             <td>{{$movi->country->title}}</td>
                             <td>{{$movi->genre->title}}</td>
                             <td><img src="{{asset('uploads/movie/'.$movi->image)}}" width="50%"></td>
+                            <td>
+                                @if($movi->phim_hot == 0)
+                                    Không
+                                @else
+                                    Có
+                                @endif
+                            </td>
                             <td>
                                 @if($movi->status)
                                     Hiển thị
