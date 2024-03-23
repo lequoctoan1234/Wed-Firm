@@ -32,7 +32,7 @@ Route::get('/the-loai/{slug}', [App\Http\Controllers\IndexConTroller::class, 'ge
 Route::get('/quoc-gia/{slug}', [App\Http\Controllers\IndexConTroller::class, 'country'] )->name('country');
 Route::get('/xem-phim', [App\Http\Controllers\IndexConTroller::class, 'watch'] )->name('watch');
 Route::get('/tap-phim', [App\Http\Controllers\IndexConTroller::class, 'episode'] )->name('episode');
-Route::get('/firm', [App\Http\Controllers\IndexConTroller::class, 'movie'] )->name('movie');
+Route::get('/firm/{slug}', [App\Http\Controllers\IndexConTroller::class, 'movie'] )->name('movie');
 
 
 

@@ -64,9 +64,13 @@ class IndexController extends Controller
         return view('pages.episode');
 
     }
-    public function movie(){
-        
-        return view('pages.movie');
+    public function movie($slug){
+
+        $category = Category::orderby('id','DESC')->where('status',1)->get();
+        $genre = Genre::orderby('id','DESC')->get();
+        $country = Country::orderby('id','DESC')->get();
+        $movie = Movie::with('category', 'genre', 'country')->where('slug',$slug)->where('status',1)->first();
+        return view('pages.movie', compact('category','genre','country','movie'));
 
     }
 
