@@ -19,6 +19,7 @@
                         <th scope="col">genre</th>
                         <th scope="col">image</th>
                         <th scope="col">Phim Hot</th>
+                        <th scope="col">Name English</th>
                         <th scope="col">Ative</th>
                         <th scope="col">Slug</th>
                         <th scope="col">Manage</th>
@@ -41,6 +42,7 @@
                                     Có
                                 @endif
                             </td>
+                            <td>{{$movi->eng}}</td>
                             <td>
                                 @if($movi->status)
                                     Hiển thị

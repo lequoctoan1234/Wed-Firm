@@ -29,7 +29,7 @@
                          <div class="halim-post-title-box">
                             <div class="halim-post-title ">
                                <p class="entry-title">{{$mov->title}}</p>
-                               <p class="original_title">{{$mov->title}}</p>
+                               <p class="original_title">{{$mov->eng}}</p>
                             </div>
                          </div>
                       </a>

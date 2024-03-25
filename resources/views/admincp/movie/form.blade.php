@@ -23,6 +23,10 @@
                     {!! Form::text('title',isset($movie) ? $movie->title : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'slug','onkeyup'=>'ChangeToSlug()']) !!}
                 </div>
                 <div class="form-group">
+                    {!! Form::label('eng','Name English', []) !!}
+                    {!! Form::text('eng',isset($movie) ? $movie->eng : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'eng']) !!}
+                </div>
+                <div class="form-group">
                     {!! Form::label('slug','Slug', []) !!}
                     {!! Form::text('slug',isset($movie) ? $movie->slug : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'convert_slug']) !!}
                 </div>
@@ -78,6 +82,7 @@
                         <th scope="col">genre</th>
                         <th scope="col">image</th>
                         <th scope="col">Phim Hot</th>
+                        <th scope="col">Name English</th>
                         <th scope="col">Ative</th>
                         <th scope="col">Slug</th>
                         <th scope="col">Manage</th>
@@ -100,6 +105,7 @@
                                     Có
                                 @endif
                             </td>
+                            <td>{{$movi->eng}}</td>
                             <td>
                                 @if($movi->status)
                                     Hiển thị

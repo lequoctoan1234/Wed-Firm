@@ -38,7 +38,7 @@
                            </div>
                            <div class="film-poster col-md-9">
                               <h1 class="movie-title title-1" style="display:block;line-height:35px;margin-bottom: -14px;color: #ffed4d;text-transform: uppercase;font-size: 18px;">{{$movie->title}}</h1>
-                              <h2 class="movie-title title-2" style="font-size: 12px;">{{$movie->title}}</h2>
+                              <h2 class="movie-title title-2" style="font-size: 12px;">{{$movie->eng}}</h2>
                               <ul class="list-info-group">
                                  <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="quality">HD</span><span class="episode">Vietsub</span></li>
                                  <li class="list-info-group-item"><span>Điểm IMDb</span> : <span class="imdb">7.2</span></li>
@@ -97,7 +97,7 @@
                                  <div class="halim-post-title-box">
                                     <div class="halim-post-title ">
                                        <p class="entry-title">{{$mov->title}}"</p>
-                                       <p class="original_title">{{$mov->title}}"</p>
+                                       <p class="original_title">{{$mov->eng}}"</p>
                                     </div>
                                  </div>
                               </a>
