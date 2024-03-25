@@ -54,7 +54,7 @@
                                 @elseif($movie->quality == 5)
                                     4k
                                 @endif
-                              </span><span class="episode">Vietsub</span></li>
+                              </span><span class="episode">{{$movie->sub}}</span></li>
                                  <li class="list-info-group-item"><span>Điểm IMDb</span> : <span class="imdb">7.2</span></li>
                                  <li class="list-info-group-item"><span>Thời lượng</span> : 133 Phút</li>
                                  <li class="list-info-group-item"><span>Thể loại</span> : <a href="" rel="category tag">Chiếu Rạp</a>, <a href="" rel="category tag">Hành động</a>, <a href="" rel="category tag">Phiêu Lưu</a>, <a href="" rel="category tag">Viễn Tưởng</a></li>
@@ -107,19 +107,7 @@
                               <a class="halim-thumb" href="{{route('movie',$mov->slug)}}" title="{{$mov->title}}">
                                  <figure><img class="lazy img-responsive" src="{{asset('/uploads/movie/'.$mov->image)}}" alt="{{$mov->title}}"" title="{{$mov->title}}""></figure>
                                  <span class="status">
-                                    @if($mov->quality == 0)
-                                    HD
-                                @elseif($mov->quality == 1)
-                                    SD
-                                @elseif($mov->quality == 2)
-                                    Full HD
-                                @elseif($mov->quality == 3)
-                                    Cam
-                                @elseif($mov->quality == 4)
-                                    HDCam
-                                @elseif($mov->quality == 5)
-                                    4k
-                                @endif
+                                    {{$mov->quality}}
                                  </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Hot</span> 
                                  <div class="icon_overlay"></div>
                                  <div class="halim-post-title-box">

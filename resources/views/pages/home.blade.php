@@ -19,21 +19,7 @@
                      <div class="halim-item">
                         <a class="halim-thumb" href="{{route('movie',$hot->slug)}}" title="{{$hot->title}}">
                            <figure><img class="lazy img-responsive" src="{{asset('/uploads/movie/'.$hot->image)}}" alt="{{$hot->title}}"" title="{{$hot->title}}""></figure>
-                           <span class="status">
-                              @if($hot->quality == 0)
-                              HD
-                          @elseif($hot->quality == 1)
-                              SD
-                          @elseif($hot->quality == 2)
-                              Full HD
-                          @elseif($hot->quality == 3)
-                              Cam
-                          @elseif($hot->quality == 4)
-                              HDCam
-                          @elseif($hot->quality == 5)
-                              4k
-                          @endif
-                        </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Hot</span> 
+                           <span class="status">{{$hot->quality}}</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Hot</span> 
                            <div class="icon_overlay"></div>
                            <div class="halim-post-title-box">
                               <div class="halim-post-title ">
@@ -52,7 +38,7 @@
                @foreach($category_home as $key => $cate_home)
                <section id="halim-advanced-widget-2">
                   <div class="section-heading">
-                     <a href="danhmuc.php" title="Phim Bộ">
+                     <a href="danhmuc.php" title="{{$cate_home->title}}">
                      <span class="h-text">{{$cate_home->title}}</span>
                      </a>
                   </div>
@@ -62,7 +48,7 @@
                         <div class="halim-item">
                            <a class="halim-thumb" href="{{route('movie',$mov->slug)}}">
                               <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" title="{{$mov->title}}"></figure>
-                              <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Vietsub</span> 
+                              <span class="status">{{$mov->quality}}</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>{{$mov->sub}}</span> 
                               <div class="icon_overlay"></div>
                               <div class="halim-post-title-box">
                                  <div class="halim-post-title ">

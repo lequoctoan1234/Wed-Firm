@@ -40,7 +40,11 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('quality','Quality', []) !!}
-                    {!! Form::select('quality',['1'=>'SD','0'=>'HD','2'=>'FullHD','3'=>'Cam','4'=>'HDCam','5'=>'4K'],isset($movie) ? $movie->quality : '',['class' => 'form-control']) !!}
+                    {!! Form::select('quality',['SD'=>'SD','HD'=>'HD','FullHD'=>'FullHD','Cam'=>'Cam','HDCam'=>'HDCam','4K'=>'4K'],isset($movie) ? $movie->quality : '',['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('sub','SUB', []) !!}
+                    {!! Form::select('sub',['Vietsub'=>'Vietsub','Thuyết Minh'=>'Thuyết Minh','Engsub'=>'Engsub'],isset($movie) ? $movie->sub : '',['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('Category','Category', []) !!}
@@ -111,21 +115,7 @@
                                 @endif
                             </td>
                             <td>{{$movi->eng}}</td>
-                            <td>
-                                @if($movi->quality == 0)
-                                    HD
-                                @elseif($movi->quality == 1)
-                                    SD
-                                @elseif($movi->quality == 2)
-                                    Full HD
-                                @elseif($movi->quality == 3)
-                                    Cam
-                                @elseif($movi->quality == 4)
-                                    HDCam
-                                @elseif($movi->quality == 5)
-                                    4k
-                                @endif
-                            </td>
+                            <td>{{$movi->quality}}</td>
                             <td>
                                 @if($movi->status)
                                     Hiển thị
