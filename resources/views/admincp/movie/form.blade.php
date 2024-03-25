@@ -91,6 +91,7 @@
                         <th scope="col">image</th>
                         <th scope="col">Phim Hot</th>
                         <th scope="col">Name English</th>
+                        <th scope="col">SUB</th>
                         <th scope="col">Quality</th>
                         <th scope="col">Ative</th>
                         <th scope="col">Slug</th>
@@ -115,6 +116,7 @@
                                 @endif
                             </td>
                             <td>{{$movi->eng}}</td>
+                            <td>{{$movi->sub}}</td>
                             <td>{{$movi->quality}}</td>
                             <td>
                                 @if($movi->status)

@@ -27,7 +27,7 @@
                          <span class="status">
                         {{$mov->quality}}
                          </span>
-                        <span class="episode"><i class="fa fa-play" aria-hidden="true"></i></span> 
+                        <span class="episode"><i class="fa fa-play" aria-hidden="true"></i>{{$mov->sub}}</span> 
                          <div class="icon_overlay"></div>
                          <div class="halim-post-title-box">
                             <div class="halim-post-title ">
