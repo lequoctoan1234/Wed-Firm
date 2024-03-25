@@ -19,7 +19,21 @@
                      <div class="halim-item">
                         <a class="halim-thumb" href="{{route('movie',$hot->slug)}}" title="{{$hot->title}}">
                            <figure><img class="lazy img-responsive" src="{{asset('/uploads/movie/'.$hot->image)}}" alt="{{$hot->title}}"" title="{{$hot->title}}""></figure>
-                           <span class="status">HD</span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Hot</span> 
+                           <span class="status">
+                              @if($hot->quality == 0)
+                              HD
+                          @elseif($hot->quality == 1)
+                              SD
+                          @elseif($hot->quality == 2)
+                              Full HD
+                          @elseif($hot->quality == 3)
+                              Cam
+                          @elseif($hot->quality == 4)
+                              HDCam
+                          @elseif($hot->quality == 5)
+                              4k
+                          @endif
+                        </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>Hot</span> 
                            <div class="icon_overlay"></div>
                            <div class="halim-post-title-box">
                               <div class="halim-post-title ">

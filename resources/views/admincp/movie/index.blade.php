@@ -20,6 +20,7 @@
                         <th scope="col">image</th>
                         <th scope="col">Phim Hot</th>
                         <th scope="col">Name English</th>
+                        <th scope="col">Quality</th>
                         <th scope="col">Ative</th>
                         <th scope="col">Slug</th>
                         <th scope="col">Manage</th>
@@ -43,6 +44,21 @@
                                 @endif
                             </td>
                             <td>{{$movi->eng}}</td>
+                            <td>
+                                @if($movi->quality == 0)
+                                    HD
+                                @elseif($movi->quality == 1)
+                                    SD
+                                @elseif($movi->quality == 2)
+                                    Full HD
+                                @elseif($movi->quality == 3)
+                                    Cam
+                                @elseif($movi->quality == 4)
+                                    HDCam
+                                @elseif($movi->quality == 5)
+                                    4k
+                                @endif
+                            </td>
                             <td>
                                 @if($movi->status)
                                     Hiển thị

@@ -39,6 +39,10 @@
                     {!! Form::select('status',['1'=>'Hiển Thị','0'=>'Không Hiển Thị'],isset($movie) ? $movie->status : '',['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
+                    {!! Form::label('quality','Quality', []) !!}
+                    {!! Form::select('quality',['1'=>'SD','0'=>'HD','2'=>'FullHD','3'=>'Cam','4'=>'HDCam','5'=>'4K'],isset($movie) ? $movie->quality : '',['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group">
                     {!! Form::label('Category','Category', []) !!}
                     {!! Form::select('category_id',$category,isset($movie) ? $movie->category_id : '',['class' => 'form-control']) !!}
                 </div>
@@ -83,6 +87,7 @@
                         <th scope="col">image</th>
                         <th scope="col">Phim Hot</th>
                         <th scope="col">Name English</th>
+                        <th scope="col">Quality</th>
                         <th scope="col">Ative</th>
                         <th scope="col">Slug</th>
                         <th scope="col">Manage</th>
@@ -106,6 +111,21 @@
                                 @endif
                             </td>
                             <td>{{$movi->eng}}</td>
+                            <td>
+                                @if($movi->quality == 0)
+                                    HD
+                                @elseif($movi->quality == 1)
+                                    SD
+                                @elseif($movi->quality == 2)
+                                    Full HD
+                                @elseif($movi->quality == 3)
+                                    Cam
+                                @elseif($movi->quality == 4)
+                                    HDCam
+                                @elseif($movi->quality == 5)
+                                    4k
+                                @endif
+                            </td>
                             <td>
                                 @if($movi->status)
                                     Hiển thị
