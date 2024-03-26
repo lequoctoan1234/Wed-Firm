@@ -59,6 +59,10 @@
                     {!! Form::select('genre_id',$genre,isset($movie) ? $movie->genre_id : '',['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
+                    {!! Form::label('time','Time', []) !!}
+                    {!! Form::text('time',isset($movie) ? $movie->time : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'time']) !!}
+                </div>
+                <div class="form-group">
                     {!! Form::label('image','image', []) !!}
                     {!! Form::file('image',['class' => 'form-control-file']) !!}
                     @if(isset($movie))
@@ -94,6 +98,7 @@
                         <th scope="col">SUB</th>
                         <th scope="col">Quality</th>
                         <th scope="col">Year</th>
+                        <th scope="col">Time</th>
                         <th scope="col">Ative</th>
                         <th scope="col">Slug</th>
                         <th scope="col">Manage</th>
@@ -122,6 +127,7 @@
                             <td>
                                 {!!form::selectYear('year',1800,2024,isset($movi->year) ? $movi->year : '',['class'=>'select-year','id'=>$movi->id])!!}
                             </td>
+                            <td>{{$movi->time." Phút"}}</td>
                             <td>
                                 @if($movi->status)
                                     Hiển thị

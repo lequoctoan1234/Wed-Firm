@@ -40,23 +40,9 @@
                               <h1 class="movie-title title-1" style="display:block;line-height:35px;margin-bottom: -14px;color: #ffed4d;text-transform: uppercase;font-size: 18px;">{{$movie->title}}</h1>
                               <h2 class="movie-title title-2" style="font-size: 12px;">{{$movie->eng}}</h2>
                               <ul class="list-info-group">
-                                 <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="quality">
-                                 @if($movie->quality == 0)
-                                    HD
-                                @elseif($movie->quality == 1)
-                                    SD
-                                @elseif($movie->quality == 2)
-                                    Full HD
-                                @elseif($movie->quality == 3)
-                                    Cam
-                                @elseif($movie->quality == 4)
-                                    HDCam
-                                @elseif($movie->quality == 5)
-                                    4k
-                                @endif
-                              </span><span class="episode">{{$movie->sub}}</span></li>
+                                 <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="quality">{{$movie->quality}}</span><span class="episode">{{$movie->sub}}</span></li>
                                  <li class="list-info-group-item"><span>Điểm IMDb</span> : <span class="imdb">7.2</span></li>
-                                 <li class="list-info-group-item"><span>Thời lượng</span> : 133 Phút</li>
+                                 <li class="list-info-group-item"><span>Thời lượng</span>: {{$movie->time}} Phút</li>
                                  <li class="list-info-group-item"><span>Thể loại</span> : <a href="" rel="category tag">Chiếu Rạp</a>, <a href="" rel="category tag">Hành động</a>, <a href="" rel="category tag">Phiêu Lưu</a>, <a href="" rel="category tag">Viễn Tưởng</a></li>
                                  <li class="list-info-group-item"><span>Quốc gia</span> : <a href="" rel="tag">{{$movie->country->title}}</a></li>
                                  <li class="list-info-group-item"><span>Đạo diễn</span> : <a class="director" rel="nofollow" href="https://phimhay.co/dao-dien/cate-shortland" title="Cate Shortland">Cate Shortland</a></li>
