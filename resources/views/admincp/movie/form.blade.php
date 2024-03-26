@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -93,6 +93,7 @@
                         <th scope="col">Name English</th>
                         <th scope="col">SUB</th>
                         <th scope="col">Quality</th>
+                        <th scope="col">Year</th>
                         <th scope="col">Ative</th>
                         <th scope="col">Slug</th>
                         <th scope="col">Manage</th>
@@ -118,6 +119,9 @@
                             <td>{{$movi->eng}}</td>
                             <td>{{$movi->sub}}</td>
                             <td>{{$movi->quality}}</td>
+                            <td>
+                                {!!form::selectYear('year',1800,2024,isset($movi->year) ? $movi->year : '',['class'=>'select-year','id'=>$movi->id])!!}
+                            </td>
                             <td>
                                 @if($movi->status)
                                     Hiển thị

@@ -19,6 +19,12 @@ class MovieController extends Controller
         $list = Movie::with('category','country','genre')-> orderby('id','DESC')->get();
         return view('admincp.movie.index',compact('list'));
     }
+    public function year(Request $request){
+        $data = $request->all();
+        $movie = Movie::find($data['id_firm']);
+        $movie->year = $data['year'];
+        $movie->save();
+    }
 
     /**
      * Show the form for creating a new resource.

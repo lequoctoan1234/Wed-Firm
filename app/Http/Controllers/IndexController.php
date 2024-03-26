@@ -54,6 +54,16 @@ class IndexController extends Controller
         return view('pages.country',compact('category','genre','country','count_slug','movie'));
 
     }
+    public function year($year){
+
+        $category = Category::orderby('id','DESC')->where('status',1)->get();
+        $genre = Genre::orderby('id','DESC')->get();
+        $country = Country::orderby('id','DESC')->get();
+        $year = $year;
+        $movie = Movie::where('year',$year)->OrderBy('time_update','DESC')->paginate(40);
+        return view('pages.year',compact('category','genre','country','year','movie'));
+
+    }
     public function watch(){
         
         return view('pages.watch');

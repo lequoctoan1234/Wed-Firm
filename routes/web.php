@@ -33,6 +33,8 @@ Route::get('/quoc-gia/{slug}', [App\Http\Controllers\IndexConTroller::class, 'co
 Route::get('/xem-phim', [App\Http\Controllers\IndexConTroller::class, 'watch'] )->name('watch');
 Route::get('/tap-phim', [App\Http\Controllers\IndexConTroller::class, 'episode'] )->name('episode');
 Route::get('/firm/{slug}', [App\Http\Controllers\IndexConTroller::class, 'movie'] )->name('movie');
+Route::get('/update-year-phim',[MovieController::class, 'year'])->name('year');
+Route::get('/nam/{year}',[IndexController::class, 'year']);
 
 
 
@@ -42,6 +44,8 @@ Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::post('resorting',[CategoryController::class, 'resorting'])->name('resorting');
 Route::post('resorting',[GenreController::class, 'resorting'])->name('resorting');
 Route::post('resorting',[CountryController::class, 'resorting'])->name('resorting');
+
+
 
 Route::resource('category',CategoryController::class);
 Route::resource('genre',GenreController::class);

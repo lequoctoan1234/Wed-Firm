@@ -91,6 +91,23 @@
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
 <script type="text/javascript">
+    $('.select-year').change(function() {
+        var year = $(this).find(':selected').val();
+        var id_firm = $(this).attr('id');
+        $.ajax({
+            url: "{{ route('year') }}",
+            method: "GET",
+            data: {
+                year: year,
+                id_firm: id_firm
+            },
+            success: function() {
+                alert('Thay đổi phim năm ' + year + ' thành công');
+            }
+        });
+    })
+</script>
+<script type="text/javascript">
     $(document).ready(function(){
         $('#mytable').DataTable();
     });
