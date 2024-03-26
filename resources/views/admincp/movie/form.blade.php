@@ -35,6 +35,10 @@
                     {!! Form::textarea('description',isset($movie) ? $movie->description : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'description']) !!}
                 </div>
                 <div class="form-group">
+                    {!! Form::label('tags','Tags', []) !!}
+                    {!! Form::textarea('tags',isset($movie) ? $movie->tags : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....']) !!}
+                </div>
+                <div class="form-group">
                     {!! Form::label('Atice','Atice', []) !!}
                     {!! Form::select('status',['1'=>'Hiển Thị','0'=>'Không Hiển Thị'],isset($movie) ? $movie->status : '',['class' => 'form-control']) !!}
                 </div>

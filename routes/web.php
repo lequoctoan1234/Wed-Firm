@@ -35,6 +35,7 @@ Route::get('/tap-phim', [App\Http\Controllers\IndexConTroller::class, 'episode']
 Route::get('/firm/{slug}', [App\Http\Controllers\IndexConTroller::class, 'movie'] )->name('movie');
 Route::get('/update-year-phim',[MovieController::class, 'year'])->name('year');
 Route::get('/nam/{year}',[IndexController::class, 'year']);
+Route::get('/tag/{tag}',[IndexController::class, 'tag']);
 
 
 

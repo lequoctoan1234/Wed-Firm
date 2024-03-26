@@ -64,18 +64,17 @@
                               Phim <a href="">{{$movie->title}}</a> - {{$movie->category->title}} - {{$movie->country->title}}:
                               <p>{{$movie->description}}</p>
                               <h5>Từ Khoá Tìm Kiếm:</h5>
-                              <ul>
-                                 <li>black widow vietsub</li>
-                                 <li>Black Widow 2021 Vietsub</li>
-                                 <li>phim black windows 2021</li>
-                                 <li>xem phim black windows</li>
-                                 <li>xem phim black widow</li>
-                                 <li>phim black windows</li>
-                                 <li>goa phu den</li>
-                                 <li>xem phim black window</li>
-                                 <li>phim black widow 2021</li>
-                                 <li>xem black widow</li>
-                              </ul>
+                              @if($movie->tags!=NULL)
+                              @php
+                              $tags = array();
+                              $tags = explode(',', $movie->tags)
+                              @endphp
+                              @foreach($tags as $key => $tag)
+                                 <a href="{{url('tag/'.$tag)}}"><br>#{{$tag}}</br></a>
+                              @endforeach
+                              @else
+                                 Chưa có tag phim
+                              @endif
                            </article>
                         </div>
                      </div>
