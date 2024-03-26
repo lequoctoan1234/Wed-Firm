@@ -87,6 +87,7 @@
                     {!! Form::close() !!}
                 </div>
             </div>
+        </div>
                 <table class="table">
                     <thead class="thead-dark">
                       <tr>
@@ -151,6 +152,5 @@
                     </tbody>
                 </table>        
         </div>
-    </div>
 </div>
 @endsection

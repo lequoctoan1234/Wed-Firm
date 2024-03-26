@@ -2,11 +2,6 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('quản lý phim') }}</div>
-            </div>
             <a href="{{route('movie.create')}}" class="btn btn-primary">Thêm Phim </a>
                 <table class="Table" id="mytable">
                     <thead class="thead-dark">
@@ -75,7 +70,4 @@
                         @endforeach
                     </tbody>
                 </table>        
-        </div>
-    </div>
-</div>
 @endsection
