@@ -7,6 +7,7 @@ use App\Models\Movie;
 use App\Models\Country;
 use App\Models\Category;
 use App\Models\Genre;
+use Carbon\Carbon;
 
 class MovieController extends Controller
 {
@@ -48,7 +49,8 @@ class MovieController extends Controller
         $movie->genre_id= $data['genre_id'];
         $movie->country_id= $data['country_id'];
         $movie->category_id= $data['category_id'];
-
+        $movie->time_create= Carbon::now('Asia/Ho_Chi_Minh');
+        $movie->time_update= Carbon::now('Asia/Ho_Chi_Minh');
         $get_image = $request->file('image');
 
         if($get_image){
@@ -103,7 +105,7 @@ class MovieController extends Controller
         $movie->country_id= $data['country_id'];
         $movie->category_id= $data['category_id'];
         $get_image = $request->file('image');
-
+        $movie->time_update= Carbon::now('Asia/Ho_Chi_Minh');
         if($get_image){
             if(!empty($movie->image)){
                 unlink('uploads/movie/'.$movie->image);
