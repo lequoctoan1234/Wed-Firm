@@ -30,7 +30,7 @@ Route::get('/',[IndexController::class, 'home'])->name('homepage');
 Route::get('/danh-muc/{slug}', [App\Http\Controllers\IndexConTroller::class, 'category'] )->name('category');
 Route::get('/the-loai/{slug}', [App\Http\Controllers\IndexConTroller::class, 'genre'] )->name('genre'); 
 Route::get('/quoc-gia/{slug}', [App\Http\Controllers\IndexConTroller::class, 'country'] )->name('country');
-Route::get('/xem-phim', [App\Http\Controllers\IndexConTroller::class, 'watch'] )->name('watch');
+Route::get('/xem-phim/{slug}', [App\Http\Controllers\IndexConTroller::class, 'watch'] )->name('watch');
 Route::get('/tap-phim', [App\Http\Controllers\IndexConTroller::class, 'episode'] )->name('episode');
 Route::get('/firm/{slug}', [App\Http\Controllers\IndexConTroller::class, 'movie'] )->name('movie');
 Route::get('/update-year-phim',[MovieController::class, 'year'])->name('year');

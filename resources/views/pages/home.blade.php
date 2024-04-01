@@ -38,7 +38,7 @@
                @foreach($category_home as $key => $cate_home)
                <section id="halim-advanced-widget-2">
                   <div class="section-heading">
-                     <a href="danhmuc.php" title="{{$cate_home->title}}">
+                     <a href="{{route('category',$cate_home->slug)}}" title="{{$cate_home->title}}">
                      <span class="h-text">{{$cate_home->title}}</span>
                      </a>
                   </div>
@@ -65,7 +65,8 @@
                <div class="clearfix"></div>
                @endforeach
             </main>
-            <aside id="sidebar" class="col-xs-12 col-sm-12 col-md-4">
+            @include('pages.include.sidebar')
+            {{-- <aside id="sidebar" class="col-xs-12 col-sm-12 col-md-4">
                <div id="halim_tab_popular_videos-widget-7" class="widget halim_tab_popular_videos-widget">
                   <div class="section-bar clearfix">
                      <div class="section-title">
@@ -202,6 +203,6 @@
                   </section>
                   <div class="clearfix"></div>
                </div>
-            </aside>
+            </aside> --}}
          </div>
 @endsection
