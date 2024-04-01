@@ -56,10 +56,12 @@ class MovieController extends Controller
         $movie->genre_id= $data['genre_id'];
         $movie->country_id= $data['country_id'];
         $movie->category_id= $data['category_id'];
+        $movie->sub= $data['sub'];
         $movie->time_create= Carbon::now('Asia/Ho_Chi_Minh');
         $movie->time_update= Carbon::now('Asia/Ho_Chi_Minh');
         $movie->time= $data['time'];
         $get_image = $request->file('image');
+        
 
         if($get_image){
             $get_name_image = $get_image->getClientOriginalName();
@@ -114,6 +116,7 @@ class MovieController extends Controller
         $movie->country_id= $data['country_id'];
         $movie->category_id= $data['category_id'];
         $movie->time= $data['time'];
+        $movie->sub= $data['sub'];
         $get_image = $request->file('image');
         $movie->time_update= Carbon::now('Asia/Ho_Chi_Minh');
         if($get_image){
