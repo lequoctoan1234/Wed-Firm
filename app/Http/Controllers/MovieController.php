@@ -25,7 +25,59 @@ class MovieController extends Controller
         $movie->year = $data['year'];
         $movie->save();
     }
+    public function topview(Request $request){
+        $data = $request->all();
+        $movie = Movie::find($data['id_firm']);
+        $movie->topview = $data['topview'];
+        $movie->save();
+    }
 
+    public function filter_topview(Request $request){
+        $data = $request->all();
+        $movie = Movie::where('topview', $data['value'])->OrderBy('time_update','DESC')->take(20)->get();
+        $output = '';
+        foreach($movie as $key => $mov){
+        $output.=' <div class="item post-37176">
+        <a href="'.url('firm/'.$mov->slug).'" '.$mov->title.'">
+            <div class="item-link">
+                <img src="'.url('uploads/movie/'.$mov->image).'" class="lazy post-thumb" alt="'.$mov->title.'" title="'.$mov->title.'" />
+                <span class="is_trailer">'.$mov->quality.'</span>
+            </div>
+            <p class="title">'.$mov->title.'</p>
+        </a>
+        <div class="viewsCount" style="color: #9d9d9d;">3.2K lượt xem</div>
+        <div style="float: left;">
+            <span class="user-rate-image post-large-rate stars-large-vang" style="display: block;/* width: 100%; */">
+                <span style="width: 0%"></span>
+            </span>
+        </div>
+    </div>';
+        }
+    echo  $output;
+    }
+    public function filter_topview_default(Request $request){
+        $data = $request->all();
+        $movie = Movie::where('topview',1)->OrderBy('time_update','DESC')->take(20)->get();
+        $output = '';
+        foreach($movie as $key => $mov){
+        $output.=' <div class="item post-37176">
+        <a href="'.url('firm/'.$mov->slug).'" '.$mov->title.'">
+            <div class="item-link">
+                <img src="'.asset('uploads/movie/'.$mov->image).'" class="lazy post-thumb" alt="'.$mov->title.'" title="'.$mov->title.'" />
+                <span class="is_trailer">'.$mov->quality.'</span>
+            </div>
+            <p class="title">'.$mov->title.'</p>
+        </a>
+        <div class="viewsCount" style="color: #9d9d9d;">3.2K lượt xem</div>
+        <div style="float: left;">
+            <span class="user-rate-image post-large-rate stars-large-vang" style="display: block;/* width: 100%; */">
+                <span style="width: 0%"></span>
+            </span>
+        </div>
+    </div>';
+        }
+    echo  $output;
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -120,7 +172,7 @@ class MovieController extends Controller
         $get_image = $request->file('image');
         $movie->time_update= Carbon::now('Asia/Ho_Chi_Minh');
         if($get_image){
-            if(!empty($movie->image)){
+            if(file_exists('uploads/movie/',$movie->image)){
                 unlink('uploads/movie/'.$movie->image);
             }
             $get_name_image = $get_image->getClientOriginalName();
@@ -140,7 +192,7 @@ class MovieController extends Controller
     public function destroy(string $id)
     {
         $movie= Movie::find($id);
-        if(!empty($movie->image)){
+        if(file_exists('uploads/movie/',$movie->image)){
             unlink('uploads/movie/'.$movie->image);
         }
         $movie->delete();

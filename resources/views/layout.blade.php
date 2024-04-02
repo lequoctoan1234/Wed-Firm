@@ -10,7 +10,7 @@
    <meta name="DC.language" scheme="utf-8" content="vi" />
    <meta name="language" content="Việt Nam">
 
-
+   <meta name="csrf_token" content="{{ csrf_token() }}" />
    <link rel="shortcut icon" href="https://www.pngkey.com/png/detail/360-3601772_your-logo-here-your-company-logo-here-png.png" type="image/x-icon" />
    <meta name="revisit-after" content="1 days" />
    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
@@ -182,6 +182,46 @@
    <script type='text/javascript' src='{{asset('js/owl.carousel.min.js')}}' id='carousel-js'></script>
 
    <script type='text/javascript' src='{{asset('js/halimtheme-core.min.js')}}' id='halim-init-js'></script>
+   <script type="text/javascript">
+      $(document).ready(function(){
+         $.ajax({
+            url: "{{url('/filter-topview-default')}}",
+            method: "GET",
+            success: function(data) {
+                $('#show_data_default').html(data);
+            }
+        });
+      $('.filter-sidebar').click(function() {
+        var href = $(this).attr('href');
+        if(href=='#ngay'){
+            var value = 1;
+        }
+        else if(href=='#tuan'){
+            var value = 2;
+        }
+        else if(href=='#thang'){
+            var value = 3;
+}
+        else{
+            var value = 0;
+        }
+        $.ajax({
+            url: "{{url('/filter-topview')}}",
+            method: "POST",
+            headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+            },
+            data: {
+                value: value,
+            },
+            success: function(data) {
+                $('#halim-ajax-popular-default').css("display","none");
+                $('#show_data').html(data);
+            }
+        });
+    })
+   })
+   </script>
    <script>
       jQuery(document).ready(function($) {				
       var owl = $('#halim_related_movies-2');

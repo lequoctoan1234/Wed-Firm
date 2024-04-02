@@ -35,7 +35,10 @@ Route::get('/tap-phim', [App\Http\Controllers\IndexConTroller::class, 'episode']
 Route::get('/firm/{slug}', [App\Http\Controllers\IndexConTroller::class, 'movie'] )->name('movie');
 Route::get('/update-year-phim',[MovieController::class, 'year'])->name('year');
 Route::get('/nam/{year}',[IndexController::class, 'year']);
+Route::get('/update-topview',[MovieController::class, 'topview'])->name('topview');
 Route::get('/tag/{tag}',[IndexController::class, 'tag']);
+Route::post('/filter-topview',[MovieController::class, 'filter_topview']);
+Route::get('/filter-topview-default',[MovieController::class, 'filter_topview_default']);
 
 
 

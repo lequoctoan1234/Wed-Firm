@@ -102,6 +102,7 @@
                         <th scope="col">Name English</th>
                         <th scope="col">SUB</th>
                         <th scope="col">Quality</th>
+                        <th scope="col">Top View</th>
                         <th scope="col">Year</th>
                         <th scope="col">Time</th>
                         <th scope="col">Ative</th>
@@ -129,6 +130,9 @@
                             <td>{{$movi->eng}}</td>
                             <td>{{$movi->sub}}</td>
                             <td>{{$movi->quality}}</td>
+                            <td>
+                                {!!form::select('topview',['0'=>'Không','1'=>'Ngày','2'=>'Tuần','3'=>'Tháng'],isset($movi->topview) ? $movi->topview : '',['class'=>'select-topview','id'=>$movi->id])!!}
+                            </td>
                             <td>
                                 {!!form::selectYear('year',1800,2024,isset($movi->year) ? $movi->year : '',['class'=>'select-year','id'=>$movi->id])!!}
                             </td>
