@@ -34,7 +34,7 @@ class MovieController extends Controller
 
     public function filter_topview(Request $request){
         $data = $request->all();
-        $movie = Movie::where('topview', $data['value'])->OrderBy('time_update','DESC')->take(20)->get();
+        $movie = Movie::where('topview', $data['value'])->OrderBy('time_update','DESC')->take(5)->get();
         $output = '';
         foreach($movie as $key => $mov){
         $output.=' <div class="item post-37176">
@@ -57,7 +57,7 @@ class MovieController extends Controller
     }
     public function filter_topview_default(Request $request){
         $data = $request->all();
-        $movie = Movie::where('topview',1)->OrderBy('time_update','DESC')->take(20)->get();
+        $movie = Movie::where('topview',1)->OrderBy('time_update','DESC')->take(5)->get();
         $output = '';
         foreach($movie as $key => $mov){
         $output.=' <div class="item post-37176">
