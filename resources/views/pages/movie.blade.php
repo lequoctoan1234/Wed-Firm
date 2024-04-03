@@ -81,6 +81,18 @@
                            </article>
                         </div>
                      </div>
+                     @if($movie->trailer!=NULL)
+                     <div class="section-bar clearfix">
+                        <h2 class="section-title"><span style="color:#ffed4d">Trailer</span></h2>
+                     </div>
+                     <div class="entry-content htmlwrap clearfix">
+                        <div class="video-item halim-entry-box">
+                           <article id="post-38424" class="item-content">
+                              <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{$movie->trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                           </article>
+                        </div>
+                     </div>
+                     @endif
                   </div>
                </section>
                <section class="related-movies">

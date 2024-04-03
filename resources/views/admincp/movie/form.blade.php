@@ -27,6 +27,10 @@
                     {!! Form::text('eng',isset($movie) ? $movie->eng : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'eng']) !!}
                 </div>
                 <div class="form-group">
+                    {!! Form::label('Trailer','Trailer', []) !!}
+                    {!! Form::text('trailer',isset($movie) ? $movie->trailer : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'trailer']) !!}
+                </div>
+                <div class="form-group">
                     {!! Form::label('slug','Slug', []) !!}
                     {!! Form::text('slug',isset($movie) ? $movie->slug : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'convert_slug']) !!}
                 </div>
@@ -100,6 +104,7 @@
                         <th scope="col">image</th>
                         <th scope="col">Phim Hot</th>
                         <th scope="col">Name English</th>
+                        <th scope="col">Trailer</th>
                         <th scope="col">SUB</th>
                         <th scope="col">Quality</th>
                         <th scope="col">Top View</th>
@@ -129,6 +134,7 @@
                                 @endif
                             </td>
                             <td>{{$movi->eng}}</td>
+                            <td>{{$movi->trailer}}</td>
                             <td>{{$movi->sub}}</td>
                             <td>{{$movi->quality}}</td>
                             <td>
