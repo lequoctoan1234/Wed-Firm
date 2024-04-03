@@ -19,6 +19,7 @@
                         <th scope="col">Quality</th>
                         <th scope="col">Top View</th>
                         <th scope="col">Year</th>
+                        <th scope="col">season</th>
                         <th scope="col">Time</th>
                         <th scope="col">Tags</th>
                         <th scope="col">Ative</th>
@@ -53,6 +54,9 @@
                             </td>
                             <td>
                                 {!! Form::selectYear('year',1800,2024,isset($movi->year) ? $movi->year : '',['class'=>'select-year','id'=>$movi->id]) !!}
+                            </td>
+                            <td>
+                                {!!form::selectRange('season',0,20,isset($movi->season) ? $movi->season : '',['class'=>'select-season','id'=>$movi->id])!!}
                             </td>
                             <td>{{$movi->time." Phút"}}</td>
                             <td>{{$movi->tags}}</td>

@@ -33,10 +33,14 @@ Route::get('/quoc-gia/{slug}', [App\Http\Controllers\IndexConTroller::class, 'co
 Route::get('/xem-phim/{slug}', [App\Http\Controllers\IndexConTroller::class, 'watch'] )->name('watch');
 Route::get('/tap-phim', [App\Http\Controllers\IndexConTroller::class, 'episode'] )->name('episode');
 Route::get('/firm/{slug}', [App\Http\Controllers\IndexConTroller::class, 'movie'] )->name('movie');
+
 Route::get('/update-year-phim',[MovieController::class, 'year'])->name('year');
-Route::get('/nam/{year}',[IndexController::class, 'year']);
+Route::get('/update-season-phim',[MovieController::class, 'season'])->name('season');
 Route::get('/update-topview',[MovieController::class, 'topview'])->name('topview');
+
+Route::get('/nam/{year}',[IndexController::class, 'year']);
 Route::get('/tag/{tag}',[IndexController::class, 'tag']);
+
 Route::post('/filter-topview',[MovieController::class, 'filter_topview']);
 Route::get('/filter-topview-default',[MovieController::class, 'filter_topview_default']);
 

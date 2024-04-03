@@ -43,6 +43,9 @@
                                  <li class="list-info-group-item"><span>Trạng Thái</span> : <span class="quality">{{$movie->quality}}</span><span class="episode">{{$movie->sub}}</span></li>
                                  <li class="list-info-group-item"><span>Điểm IMDb</span> : <span class="imdb">7.2</span></li>
                                  <li class="list-info-group-item"><span>Thời lượng</span>: {{$movie->time}} Phút</li>
+                                 @if($movie->season!=0)
+                                 <li class="list-info-group-item"><span>Season</span>: Season {{$movie->season}}</li>
+                                 @endif
                                  <li class="list-info-group-item"><span>Thể loại</span> : <a href="" rel="category tag">Chiếu Rạp</a>, <a href="" rel="category tag">Hành động</a>, <a href="" rel="category tag">Phiêu Lưu</a>, <a href="" rel="category tag">Viễn Tưởng</a></li>
                                  <li class="list-info-group-item"><span>Quốc gia</span> : <a href="" rel="tag">{{$movie->country->title}}</a></li>
                                  <li class="list-info-group-item"><span>Đạo diễn</span> : <a class="director" rel="nofollow" href="https://phimhay.co/dao-dien/cate-shortland" title="Cate Shortland">Cate Shortland</a></li>

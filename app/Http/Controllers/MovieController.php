@@ -25,6 +25,12 @@ class MovieController extends Controller
         $movie->year = $data['year'];
         $movie->save();
     }
+    public function season (Request $request){
+        $data = $request->all();
+        $movie = Movie::find($data['id_firm']);
+        $movie->season = $data['season'];
+        $movie->save();
+    }
     public function topview(Request $request){
         $data = $request->all();
         $movie = Movie::find($data['id_firm']);

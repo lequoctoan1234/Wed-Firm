@@ -108,6 +108,23 @@
     })
 </script>
 <script type="text/javascript">
+    $('.select-season').change(function() {
+        var season = $(this).find(':selected').val();
+        var id_firm = $(this).attr('id');
+        $.ajax({
+            url: "{{ route('season') }}",
+            method: "GET",
+            data: {
+                season: season,
+                id_firm: id_firm
+            },
+            success: function() {
+                alert('Thay đổi phim năm ' + season + ' thành công');
+            }
+        });
+    })
+</script>
+<script type="text/javascript">
     $('.select-topview').change(function() {
         var topview = $(this).find(':selected').val();
         var id_firm = $(this).attr('id');
