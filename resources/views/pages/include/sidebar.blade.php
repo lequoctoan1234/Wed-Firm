@@ -51,10 +51,10 @@
                 </div>
             </div>
             <div class="tab-content" id="nav-tabContent">
-               <div id="halim-ajax-popular-default" class="popular-post">
+               {{-- <div id="halim-ajax-popular-post-default" class="popular-post">
                      <span id="show_data_default"></span>
-               </div>
-               <div class="tab-pane fade" id="tuan" role="tabpanel" aria-labelledby="nav-home-tab">
+               </div> --}}
+               <div class="tab-pane fade-post" id="tuan" role="tabpanel" aria-labelledby="nav-home-tab">
                   <div id="halim-ajax-popular" class="popular-post">
                      <span id="show_data"></span>
                   </div>

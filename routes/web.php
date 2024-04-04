@@ -42,7 +42,6 @@ Route::get('/nam/{year}',[IndexController::class, 'year']);
 Route::get('/tag/{tag}',[IndexController::class, 'tag']);
 
 Route::post('/filter-topview',[MovieController::class, 'filter_topview']);
-Route::get('/filter-topview-default',[MovieController::class, 'filter_topview_default']);
 
 
 

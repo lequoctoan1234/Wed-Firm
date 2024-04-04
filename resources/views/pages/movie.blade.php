@@ -93,6 +93,19 @@
                         </div>
                      </div>
                      @endif
+                     <div class="section-bar clearfix">
+                        <h2 class="section-title"><span style="color:#ffed4d">Bình Luận</span></h2>
+                     </div>
+                     <div class="entry-content htmlwrap clearfix">
+                        @php
+                        $url = Request::url();
+                        @endphp
+                        <div class="video-item halim-entry-box">
+                           <article id="post-38424" class="item-content">
+                              <div class="fb-comments" data-href="http://localhost:8000/firm/{{$url}}" data-width="100%" data-numposts="5"></div>
+                           </article>
+                        </div>
+                     </div>
                   </div>
                </section>
                <section class="related-movies">

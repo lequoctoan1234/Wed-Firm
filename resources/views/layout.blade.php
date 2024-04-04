@@ -14,7 +14,7 @@
    <link rel="shortcut icon" href="https://www.pngkey.com/png/detail/360-3601772_your-logo-here-your-company-logo-here-png.png" type="image/x-icon" />
    <meta name="revisit-after" content="1 days" />
    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-   <title>Phim hay 2021 - Xem phim hay nhất</title>
+   <title>Phim hay 2024 - Xem phim hay nhất</title>
    <meta name="description" content="Phim hay 2021 - Xem phim hay nhất, xem phim online miễn phí, phim hot , phim nhanh" />
    <link rel="canonical" href="">
    <link rel="next" href="" />
@@ -180,17 +180,21 @@
 
    <script type='text/javascript' src='{{asset('js/bootstrap.min.js')}}' id='bootstrap-js'></script>
    <script type='text/javascript' src='{{asset('js/owl.carousel.min.js')}}' id='carousel-js'></script>
-
    <script type='text/javascript' src='{{asset('js/halimtheme-core.min.js')}}' id='halim-init-js'></script>
+
+   <div id="fb-root"></div>
+   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0" nonce="dPY7ZypA"></script>
+   
+
    <script type="text/javascript">
       $(document).ready(function(){
-         $.ajax({
-            url: "{{url('/filter-topview-default')}}",
-            method: "GET",
-            success: function(data) {
-                $('#show_data_default').html(data);
-            }
-        });
+      //    $.ajax({
+      //       url: "{{url('/filter-topview-default')}}",
+      //       method: "GET",
+      //       success: function(data) {
+      //           $('#show_data_default').html(data);
+      //       }
+      //   });
       $('.filter-sidebar').click(function() {
         var href = $(this).attr('href');
         if(href=='#ngay'){
@@ -215,11 +219,15 @@
                 value: value,
             },
             success: function(data) {
-                $('#halim-ajax-popular-default').css("display","none");
+               //  $('#halim-ajax-popular-post-default').css("display","none");
                 $('#show_data').html(data);
             }
         });
     })
+    setTimeout(function(){
+        $('.filter-sidebar').trigger('click');
+    }, 0);
+
    })
    </script>
    <script>

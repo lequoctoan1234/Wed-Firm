@@ -9,6 +9,9 @@ use App\Models\Category;
 use App\Models\Genre;
 use Carbon\Carbon;
 
+use Storage;
+use File;
+
 class MovieController extends Controller
 {
     /**
@@ -17,6 +20,14 @@ class MovieController extends Controller
     public function index()
     {
         $list = Movie::with('category','country','genre')-> orderby('id','DESC')->get();
+
+        $path = public_path()."/json_file/";
+        if(!is_dir($path)){
+            mkdir($path,0777,true);
+        }
+
+        File::put($path.'movies.json',json_encode($list));
+
         return view('admincp.movie.index',compact('list'));
     }
     public function year(Request $request){
@@ -47,29 +58,6 @@ class MovieController extends Controller
         <a href="'.url('firm/'.$mov->slug).'" '.$mov->title.'">
             <div class="item-link">
                 <img src="'.url('uploads/movie/'.$mov->image).'" class="lazy post-thumb" alt="'.$mov->title.'" title="'.$mov->title.'" />
-                <span class="is_trailer">'.$mov->quality.'</span>
-            </div>
-            <p class="title">'.$mov->title.'</p>
-        </a>
-        <div class="viewsCount" style="color: #9d9d9d;">3.2K lượt xem</div>
-        <div style="float: left;">
-            <span class="user-rate-image post-large-rate stars-large-vang" style="display: block;/* width: 100%; */">
-                <span style="width: 0%"></span>
-            </span>
-        </div>
-    </div>';
-        }
-    echo  $output;
-    }
-    public function filter_topview_default(Request $request){
-        $data = $request->all();
-        $movie = Movie::where('topview',1)->OrderBy('time_update','DESC')->take(5)->get();
-        $output = '';
-        foreach($movie as $key => $mov){
-        $output.=' <div class="item post-37176">
-        <a href="'.url('firm/'.$mov->slug).'" '.$mov->title.'">
-            <div class="item-link">
-                <img src="'.asset('uploads/movie/'.$mov->image).'" class="lazy post-thumb" alt="'.$mov->title.'" title="'.$mov->title.'" />
                 <span class="is_trailer">'.$mov->quality.'</span>
             </div>
             <p class="title">'.$mov->title.'</p>
