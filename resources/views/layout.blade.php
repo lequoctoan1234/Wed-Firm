@@ -59,15 +59,12 @@
             <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
                <div class="header-nav">
                   <div class="col-xs-12">
-                     <form id="search-form-pc" name="halimForm" role="search" action="" method="GET">
                         <div class="form-group">
                            <div class="input-group col-xs-12">
-                              <input id="search" type="text" name="s" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" required>
-                              <i class="animate-spin hl-spin4 hidden"></i>
+                              <input id="search" type="text" name="search" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" required>
                            </div>
                         </div>
-                     </form>
-                     <ul class="ui-autocomplete ajax-results hidden"></ul>
+                     <ul class="list-group" style="position:absolute; z-index:9999; background:#1d2b3c;Opacity:0.95; width:94%; panding:10px; margin:1px" id="result"></ul>
                   </div>
                </div>
             </div>
@@ -109,14 +106,6 @@
                      @foreach($category as $key => $cate)
                      <li class="mega"><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>
                      @endforeach
-                     {{-- <li class="mega dropdown">
-                        <a title="Năm" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Năm <span class="caret"></span></a>
-                        <ul role="menu" class=" dropdown-menu">
-                           <li><a title="Phim 2020" href="danhmuc.php">Phim 2020</a></li>
-                           <li><a title="Năm 2019" href="danhmuc.php">Năm 2019</a></li>
-                           <li><a title="Năm 2018" href="danhmuc.php">Năm 2018</a></li>
-                        </ul>
-                     </li> --}}
                      <li class="mega dropdown">
                         <a title="Thể Loại" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Thể Loại <span class="caret"></span></a>
                         <ul role="menu" class=" dropdown-menu">
@@ -185,16 +174,28 @@
    <div id="fb-root"></div>
    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0" nonce="dPY7ZypA"></script>
    
-
+      {{-- search --}}
    <script type="text/javascript">
       $(document).ready(function(){
-      //    $.ajax({
-      //       url: "{{url('/filter-topview-default')}}",
-      //       method: "GET",
-      //       success: function(data) {
-      //           $('#show_data_default').html(data);
-      //       }
-      //   });
+         $('#search').keyup(function(){
+            $('#result').html('');
+            var search = $('#search').val();
+            if (search!=''){
+               var expression = new RegExp(search,"i");
+               $.getJSON('/json_file/movies.json',function(data){
+                  $.each(data,function(key, value){
+                     if (value.title.search(expression) != -1 ){
+                        $('#result').append('<li style="cursor:pointer;list-style:none;" class="list-group-item link-class"><img style="width:40px; heght:40px;padding-right: 10px;"  src="uploads/movie/'+value.image+'">'+value.title+'</li>');
+                     }
+                  });
+               })
+            }
+         })
+      })
+   </script>
+      {{-- sidebar top view --}}
+   <script type="text/javascript">
+      $(document).ready(function(){
       $('.filter-sidebar').click(function() {
         var href = $(this).attr('href');
         if(href=='#ngay'){
@@ -219,7 +220,6 @@
                 value: value,
             },
             success: function(data) {
-               //  $('#halim-ajax-popular-post-default').css("display","none");
                 $('#show_data').html(data);
             }
         });
