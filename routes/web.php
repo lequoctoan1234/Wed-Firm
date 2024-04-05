@@ -33,6 +33,7 @@ Route::get('/quoc-gia/{slug}', [App\Http\Controllers\IndexConTroller::class, 'co
 Route::get('/xem-phim/{slug}', [App\Http\Controllers\IndexConTroller::class, 'watch'] )->name('watch');
 Route::get('/tap-phim', [App\Http\Controllers\IndexConTroller::class, 'episode'] )->name('episode');
 Route::get('/firm/{slug}', [App\Http\Controllers\IndexConTroller::class, 'movie'] )->name('movie');
+Route::get('/search', [App\Http\Controllers\IndexConTroller::class, 'search'] )->name('search');
 
 Route::get('/update-year-phim',[MovieController::class, 'year'])->name('year');
 Route::get('/update-season-phim',[MovieController::class, 'season'])->name('season');

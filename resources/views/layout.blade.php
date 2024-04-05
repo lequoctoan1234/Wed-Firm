@@ -59,11 +59,13 @@
             <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
                <div class="header-nav">
                   <div class="col-xs-12">
+                     <form id="search-form-pc" name="halimForm" role="search" action="{{route('search')}}" method="GET">
                         <div class="form-group">
                            <div class="input-group col-xs-12">
-                              <input id="search" type="text" name="search" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" required>
+                              <input id="search" type="text" name="search" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" >
                            </div>
                         </div>
+                     </form>
                      <ul class="list-group" style="position:absolute; z-index:9999; background:#1d2b3c;Opacity:0.95; width:94%; panding:10px; margin:1px" id="result"></ul>
                   </div>
                </div>
@@ -88,7 +90,7 @@
                   <span class="icon-bar"></span>
                </button>
                <button type="button" class="navbar-toggle collapsed pull-right expand-search-form" data-toggle="collapse" data-target="#search-form" aria-expanded="false">
-                  <span class="hl-search" aria-hidden="true"></span>
+                  <span class="hl-search" aria-hidden="false"></span>
                </button>
                <button type="button" class="navbar-toggle collapsed pull-right get-bookmark-on-mobile">
                   Bookmarks<i class="hl-bookmark" aria-hidden="true"></i>
@@ -185,12 +187,17 @@
                $.getJSON('/json_file/movies.json',function(data){
                   $.each(data,function(key, value){
                      if (value.title.search(expression) != -1 ){
-                        $('#result').append('<li style="cursor:pointer;list-style:none;" class="list-group-item link-class"><img style="width:40px; heght:40px;padding-right: 10px;"  src="uploads/movie/'+value.image+'">'+value.title+'</li>');
+                        $('#result').append('<li style="cursor:pointer;list-style:none;" class="list-group-item link-class"><img style="width:40px; heght:40px;padding-right: 10px;"  src="/uploads/movie/'+value.image+'">'+value.title+'</li>');
                      }
                   });
                })
             }
          })
+         $('#result').on('click','li',function(){
+            var click_test = $(this).text();
+            $('#search').val($.trim(click_test));
+            $('#result').html('');
+         });
       })
    </script>
       {{-- sidebar top view --}}

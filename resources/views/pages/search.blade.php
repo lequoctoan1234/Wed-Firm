@@ -5,7 +5,7 @@
         <div class="panel-heading">
             <div class="row">
                 <div class="col-xs-6">
-                    <div class="yoast_breadcrumb hidden-xs"><span><span>Danh Mục Phim » <span class="breadcrumb_last" aria-current="page"><a href="">{{$cate_slug->title}}</a></span></span></span></div>
+                    <div class="yoast_breadcrumb hidden-xs"><span><span>Tìm Kiếm Phim » <span class="breadcrumb_last" aria-current="page"><a href="">{{$search}}</a></span></span></span></div>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-27021">
                    <div class="halim-item">
                       <a class="halim-thumb" href="{{route('movie',$mov->slug)}}">
-                         <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" title="{{$mov->title}}"></figure>
+                         <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$mov->image)}}" title="{{$mov->title}}" alt="{{$search}}"></figure>
                          <span class="status">
                         {{$mov->quality}}
                     </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>{{$mov->sub}}</span> 

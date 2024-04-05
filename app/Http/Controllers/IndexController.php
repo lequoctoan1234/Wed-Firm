@@ -13,6 +13,26 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
+    public function search(){
+        if (isset($_GET['search'])){
+            $search = $_GET['search'];
+            $category = Category::orderby('id','DESC')->where('status',1)->get();
+            $genre = Genre::orderby('id','DESC')->get();
+            $country = Country::orderby('id','DESC')->get();
+            $category_home = Category::with('movie')->orderby('id','DESC')->where('status',1)->get();
+
+            $movie = Movie::where('title','LIKE','%'.$search.'%')->OrderBy('time_update','DESC')->paginate(40);
+
+            $phimhot_sidebar = Movie::where('phim_hot',1)->where('status',1)->OrderBy('time_update','DESC')->take(5)->get();
+    
+            return view('pages.search',compact('category','genre','country','search','category_home','movie','phimhot_sidebar'));
+        }
+        else{
+            return redirect()->to('/');
+        }
+    }
+
+
     public function home(){
         $phimhot = Movie::where('phim_hot',1)->where('status',1)->OrderBy('time_update','DESC')->get();
         $phimhot_sidebar = Movie::where('phim_hot',1)->where('status',1)->OrderBy('time_update','DESC')->take(5)->get();

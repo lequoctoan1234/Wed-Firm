@@ -73,7 +73,7 @@
                               $tags = explode(',', $movie->tags)
                               @endphp
                               @foreach($tags as $key => $tag)
-                                 <a href="{{url('tag/'.$tag)}}"><br>#{{$tag}}</br></a>
+                                 <a href="{{url('tag/'.$tag)}}">,#{{$tag}}</a>
                               @endforeach
                               @else
                                  Chưa có tag phim
