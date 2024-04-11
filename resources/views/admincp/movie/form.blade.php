@@ -27,6 +27,10 @@
                     {!! Form::text('eng',isset($movie) ? $movie->eng : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'eng']) !!}
                 </div>
                 <div class="form-group">
+                    {!! Form::label('description','Description', []) !!}
+                    {!! Form::textarea('description',isset($movie) ? $movie->description : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....']) !!}
+                </div>
+                <div class="form-group">
                     {!! Form::label('Trailer','Trailer', []) !!}
                     {!! Form::text('trailer',isset($movie) ? $movie->trailer : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'trailer']) !!}
                 </div>
@@ -35,8 +39,12 @@
                     {!! Form::text('slug',isset($movie) ? $movie->slug : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'convert_slug']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('description','Description', []) !!}
-                    {!! Form::textarea('description',isset($movie) ? $movie->description : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....','id'=>'description']) !!}
+                    {!! Form::label('director','Director', []) !!}
+                    {!! Form::text('director',isset($movie) ? $movie->director : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('actor','Actor', []) !!}
+                    {!! Form::textarea('actor',isset($movie) ? $movie->actor : '', ['class' => 'form-control','placeholder' =>'Nhập dữ liệu vào ....']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('tags','Tags', []) !!}
@@ -98,9 +106,13 @@
                         <th scope="col">ID</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Director</th>
+                        <th scope="col">Actor</th>
                         <th scope="col">category</th>
                         <th scope="col">country</th>
                         <th scope="col">genre</th>
+                        <th scope="col">Director</th>
+                        <th scope="col">Actor</th>
                         <th scope="col">image</th>
                         <th scope="col">Phim Hot</th>
                         <th scope="col">Name English</th>
@@ -122,6 +134,8 @@
                             <th scope="row">{{$key}}</th>
                             <td>{{$movi->title}}</td>
                             <td>{{$movi->description}}</td>
+                            <td>{{$movi->director}}</td>
+                            <td>{{$movi->actor}}</td>
                             <td>{{$movi->category->title}}</td>
                             <td>{{$movi->country->title}}</td>
                             <td>{{$movi->genre->title}}</td>

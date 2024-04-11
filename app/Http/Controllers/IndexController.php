@@ -100,6 +100,28 @@ class IndexController extends Controller
         return view('pages.tag',compact('category','genre','country','movie','tag','phimhot_sidebar'));
 
     }
+    public function actor($actor){
+
+        $category = Category::orderby('id','DESC')->where('status',1)->get();
+        $genre = Genre::orderby('id','DESC')->get();
+        $country = Country::orderby('id','DESC')->get();
+        $actor = $actor;
+        $movie = Movie::where('actor','LIKE','%'.$actor.'%')->OrderBy('time_update','DESC')->paginate(40);
+        $phimhot_sidebar = Movie::where('phim_hot',1)->where('status',1)->OrderBy('time_update','DESC')->take(5)->get();
+        return view('pages.actor',compact('category','genre','country','movie','actor','phimhot_sidebar'));
+
+    }
+    public function director($director){
+
+        $category = Category::orderby('id','DESC')->where('status',1)->get();
+        $genre = Genre::orderby('id','DESC')->get();
+        $country = Country::orderby('id','DESC')->get();
+        $director = $director;
+        $movie = Movie::where('director','LIKE','%'.$director.'%')->OrderBy('time_update','DESC')->paginate(40);
+        $phimhot_sidebar = Movie::where('phim_hot',1)->where('status',1)->OrderBy('time_update','DESC')->take(5)->get();
+        return view('pages.director',compact('category','genre','country','movie','director','phimhot_sidebar'));
+
+    }
     public function watch($slug){
         $category = Category::orderby('id','DESC')->where('status',1)->get();
         $genre = Genre::orderby('id','DESC')->get();

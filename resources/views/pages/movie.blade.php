@@ -48,8 +48,32 @@
                                  @endif
                                  <li class="list-info-group-item"><span>Thể loại</span> : <a href="" rel="category tag">Chiếu Rạp</a>, <a href="" rel="category tag">Hành động</a>, <a href="" rel="category tag">Phiêu Lưu</a>, <a href="" rel="category tag">Viễn Tưởng</a></li>
                                  <li class="list-info-group-item"><span>Quốc gia</span> : <a href="" rel="tag">{{$movie->country->title}}</a></li>
-                                 <li class="list-info-group-item"><span>Đạo diễn</span> : <a class="director" rel="nofollow" href="https://phimhay.co/dao-dien/cate-shortland" title="Cate Shortland">Cate Shortland</a></li>
-                                 <li class="list-info-group-item last-item" style="-overflow: hidden;-display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-flex: 1;-webkit-box-orient: vertical;"><span>Diễn viên</span> : <a href="" rel="nofollow" title="C.C. Smiff">C.C. Smiff</a>, <a href="" rel="nofollow" title="David Harbour">David Harbour</a>, <a href="" rel="nofollow" title="Erin Jameson">Erin Jameson</a>, <a href="" rel="nofollow" title="Ever Anderson">Ever Anderson</a>, <a href="" rel="nofollow" title="Florence Pugh">Florence Pugh</a>, <a href="" rel="nofollow" title="Lewis Young">Lewis Young</a>, <a href="" rel="nofollow" title="Liani Samuel">Liani Samuel</a>, <a href="" rel="nofollow" title="Michelle Lee">Michelle Lee</a>, <a href="" rel="nofollow" title="Nanna Blondell">Nanna Blondell</a>, <a href="" rel="nofollow" title="O-T Fagbenle">O-T Fagbenle</a></li>
+                                 <li class="list-info-group-item"><span>Đạo diễn</span> : 
+                                    @if($movie->director!=NULL)
+                                    @php
+                                    $director = array();
+                                    $director = explode(',', $movie->director)
+                                    @endphp
+                                    @foreach($director as $key => $dir)
+                                       <a href="{{url('director/'.$dir)}}">{{$dir}},</a>
+                                    @endforeach
+                                    @else
+                                       Chưa cập nhật đạo diễn
+                                    @endif
+                                       </li>
+                                 <li class="list-info-group-item last-item" style="-overflow: hidden;-display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-flex: 1;-webkit-box-orient: vertical;"><span>Diễn viên</span> : 
+                                    @if($movie->actor!=NULL)
+                                    @php
+                                    $actor = array();
+                                    $actor = explode(',', $movie->actor)
+                                    @endphp
+                                    @foreach($actor as $key => $act)
+                                    <a href="{{url('actor/'.$act)}}">{{$act}},</a>
+                                    @endforeach
+                                    @else
+                                       Chưa cập nhật diễn viên
+                                    @endif
+                                 </li>
                               </ul>
                               <div class="movie-trailer hidden"></div>
                            </div>

@@ -12,6 +12,8 @@
                         <th scope="col">category</th>
                         <th scope="col">country</th>
                         <th scope="col">genre</th>
+                        <th scope="col">director</th>
+                        <th scope="col">actor</th>
                         <th scope="col">image</th>
                         <th scope="col">Phim Hot</th>
                         <th scope="col">Name English</th>
@@ -37,6 +39,8 @@
                             <td>{{$movi->category->title}}</td>
                             <td>{{$movi->country->title}}</td>
                             <td>{{$movi->genre->title}}</td>
+                            <td>{{$movi->director}}</td>
+                            <td>{{$movi->actor}}</td>
                             <td><img src="{{asset('uploads/movie/'.$movi->image)}}" width="50%"></td>
                             <td>
                                 @if($movi->phim_hot == 0)

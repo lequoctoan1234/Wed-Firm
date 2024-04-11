@@ -41,6 +41,8 @@ Route::get('/update-topview',[MovieController::class, 'topview'])->name('topview
 
 Route::get('/nam/{year}',[IndexController::class, 'year']);
 Route::get('/tag/{tag}',[IndexController::class, 'tag']);
+Route::get('/director/{director}',[IndexController::class, 'director']);
+Route::get('/actor/{actor}',[IndexController::class, 'actor']);
 
 Route::post('/filter-topview',[MovieController::class, 'filter_topview']);
 
