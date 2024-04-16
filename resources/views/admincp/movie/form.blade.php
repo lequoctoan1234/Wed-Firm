@@ -72,7 +72,19 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('Genre','Genre', []) !!}
-                    {!! Form::select('genre_id',$genre,isset($movie) ? $movie->genre_id : '',['class' => 'form-control']) !!}
+                    {{-- {!! Form::select('genre_id',$genre,isset($movie) ? $movie->genre_id : '',['class' => 'form-control']) !!} --}}
+                    @foreach($list_genre as $key => $gen)
+                    <div class="checkbox{{ $errors->has('genre[]') ? ' has-error' : '' }}">
+                    <label for="genre[]">
+                        @if(isset($movie))
+                    {!! Form::checkbox('genre[]', $gen->id,isset($movie_genre) && $movie_genre->contains($gen->id) ? true : false) !!} {{$gen->title}}
+                        @else
+                    {!! Form::checkbox('genre[]', $gen->id,'') !!} {{$gen->title}}
+                        @endif
+                    </label>
+                    </div>
+                    <small class="text-danger">{{ $errors->first('genre[]') }}</small>
+                    @endforeach
                 </div>
                 <div class="form-group">
                     {!! Form::label('time','Time', []) !!}
@@ -105,14 +117,12 @@
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Title</th>
-                        <th scope="col">Description</th>
+                        {{-- <th scope="col">Description</th> --}}
                         <th scope="col">Director</th>
                         <th scope="col">Actor</th>
                         <th scope="col">category</th>
                         <th scope="col">country</th>
                         <th scope="col">genre</th>
-                        <th scope="col">Director</th>
-                        <th scope="col">Actor</th>
                         <th scope="col">image</th>
                         <th scope="col">Phim Hot</th>
                         <th scope="col">Name English</th>
@@ -124,7 +134,7 @@
                         <th scope="col">Season</th>
                         <th scope="col">Time</th>
                         <th scope="col">Ative</th>
-                        <th scope="col">Slug</th>
+                        {{-- <th scope="col">Slug</th> --}}
                         <th scope="col">Manage</th>
                       </tr>
                     </thead>
@@ -133,12 +143,16 @@
                         <tr id="{{$movi->id}}">
                             <th scope="row">{{$key}}</th>
                             <td>{{$movi->title}}</td>
-                            <td>{{$movi->description}}</td>
+                            {{-- <td>{{$movi->description}}</td> --}}
                             <td>{{$movi->director}}</td>
                             <td>{{$movi->actor}}</td>
                             <td>{{$movi->category->title}}</td>
                             <td>{{$movi->country->title}}</td>
-                            <td>{{$movi->genre->title}}</td>
+                            <td>
+                            @foreach($movi->movie_genre as $gen)
+                            <span class="badge badge-dark">{{$gen->title}}</span>
+                            @endforeach
+                            </td>
                             <td><img src="{{asset('uploads/movie/'.$movi->image)}}" width="50%"></td>
                             <td>
                                 @if($movi->phim_hot == 0)
@@ -168,7 +182,7 @@
                                     Không hiển thị
                                 @endif
                             </td>
-                            <td>{{$movi->slug}}</td>
+                            {{-- <td>{{$movi->slug}}</td> --}}
                             <td style="display: flex;">
                                 {!! Form::open(['method' => 'DELETE', 'route' => ['movie.destroy',$movi->id],'onsubmit'=>'return confirm("Bạn chắc chắn muốn xóa danh mục này?")']) !!}
                                 {!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!}

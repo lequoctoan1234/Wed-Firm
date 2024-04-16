@@ -38,7 +38,11 @@
                             {{-- <td>{{$movi->description}}</td> --}}
                             <td>{{$movi->category->title}}</td>
                             <td>{{$movi->country->title}}</td>
-                            <td>{{$movi->genre->title}}</td>
+                            <td>
+                                @foreach($movi->movie_genre as $gen)
+                                <span class="badge badge-dark">{{$gen->title}}</span>
+                                @endforeach
+                            </td>
                             <td>{{$movi->director}}</td>
                             <td>{{$movi->actor}}</td>
                             <td><img src="{{asset('uploads/movie/'.$movi->image)}}" width="50%"></td>

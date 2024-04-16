@@ -8,6 +8,7 @@ use App\Models\Genre;
 use App\Models\Country;
 use App\Models\Movie;
 use App\Models\Episode;
+use App\Models\Movie_Genre;
 use Illuminate\Support\Facades\DB;
 
 
@@ -62,9 +63,14 @@ class IndexController extends Controller
         $genre = Genre::orderby('id','DESC')->get();
         $country = Country::orderby('id','DESC')->get();
         $gen_slug = Genre::where('slug',$slug)->first();
-        $movie = Movie::where('genre_id',$gen_slug->id)->OrderBy('time_update','DESC')->paginate(40);
         $phimhot_sidebar = Movie::where('phim_hot',1)->where('status',1)->OrderBy('time_update','DESC')->take(5)->get();
-        return view('pages.genre',compact('category','genre','country','gen_slug','movie','phimhot_sidebar'));
+        $movie_genre = Movie_Genre::where('genre_id',$gen_slug->id)->get();
+        $genres = [];
+        foreach($movie_genre as $key => $val){
+            $genres[] = $val->movie_id;
+        }
+        $movie = Movie::whereIn('id',$genres)->OrderBy('time_update','DESC')->paginate(40);
+        return view('pages.genre',compact('category','genre','country','gen_slug','movie','phimhot_sidebar','movie_genre'));
 
     }
     public function country($slug){
@@ -140,7 +146,7 @@ class IndexController extends Controller
         $genre = Genre::orderby('id','DESC')->get();
         $country = Country::orderby('id','DESC')->get();
         $movie = Movie::with('category', 'genre', 'country')->where('slug',$slug)->where('status',1)->first();
-        $movies = Movie::with('category', 'genre', 'country')->where('genre_id',$movie->genre->id)->OrderBy('time_update','DESC')->OrderBy(DB::raw('RAND()'))->whereNotIn(
+        $movies = Movie::with('category', 'genre', 'country','movie_genre')->where('genre_id',$movie->genre->id)->OrderBy('time_update','DESC')->OrderBy(DB::raw('RAND()'))->whereNotIn(
             'slug',[$slug]
         )->get();
         return view('pages.movie', compact('category','genre','country','movie','movies'));

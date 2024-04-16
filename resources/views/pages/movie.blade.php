@@ -46,7 +46,11 @@
                                  @if($movie->season!=0)
                                  <li class="list-info-group-item"><span>Season</span>: Season {{$movie->season}}</li>
                                  @endif
-                                 <li class="list-info-group-item"><span>Thể loại</span> : <a href="" rel="category tag">Chiếu Rạp</a>, <a href="" rel="category tag">Hành động</a>, <a href="" rel="category tag">Phiêu Lưu</a>, <a href="" rel="category tag">Viễn Tưởng</a></li>
+                                 <li class="list-info-group-item"><span>Thể loại</span> : 
+                                 @foreach($movie->movie_genre as $key => $gen)
+                                 <a href="{{route('genre',$gen->slug)}}" rel="category tag"> {{$gen->title}}; </a>
+                                 @endforeach
+                                 </li>
                                  <li class="list-info-group-item"><span>Quốc gia</span> : <a href="" rel="tag">{{$movie->country->title}}</a></li>
                                  <li class="list-info-group-item"><span>Đạo diễn</span> : 
                                     @if($movie->director!=NULL)
